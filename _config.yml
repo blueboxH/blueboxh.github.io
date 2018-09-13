@@ -6,7 +6,7 @@
 title: bluebox's box
 subtitle:
 description: bluebox 的盒子
-keywords:
+keywords: bluebox, java, python
 author: bluebox
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts

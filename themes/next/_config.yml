@@ -35,7 +35,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "bluebox, java, python"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -112,8 +112,8 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-#scheme: Mist
-#scheme: Pisces
+# scheme: Mist
+# scheme: Pisces
 scheme: Gemini
 
 
@@ -154,7 +154,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/avatar.gif
+avatar: /images/test.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -270,8 +270,8 @@ android_chrome_color: "#222"
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: false
-  image:
+  enabled: true
+  image: /images/logo.png
 
 # Code Highlight theme
 # Available value:
@@ -327,13 +327,13 @@ font:
   # Fallback to `global` font settings.
   logo:
     external: true
-    family: Lobster Two
-    size:
+    family: AppleGothic
+    size: 28
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: PT Mono
+    family: consolas
     size:
 
 
@@ -379,13 +379,13 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 valine:
-  enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  enable: true
+  appid:  dNdNNYI12UqVw3qJXg5xIsjj-gzGzoHsz
+  appkey:  4G4XnftmFLPFFYHpG6rMtKyF
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
+  avatar: monsterid # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
 
@@ -396,7 +396,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zOTY3OS8xNjIwNg==
+# livere_uid: MTAyMC8zOTY3OS8xNjIwNg==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -532,9 +532,9 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: dNdNNYI12UqVw3qJXg5xIsjj-gzGzoHsz
+  app_key: 4G4XnftmFLPFFYHpG6rMtKyF
 
 # Another tool to show number of visitors to each article.
 # visit https://console.firebase.google.com/u/0/ to get apiKey and projectId

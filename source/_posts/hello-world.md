@@ -1,5 +1,6 @@
 ---
 title: Hello World
+urlName: Hello World
 tags: 
   - 标签测试1
   - 标签测试2

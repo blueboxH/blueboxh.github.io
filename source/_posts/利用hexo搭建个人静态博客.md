@@ -1,0 +1,93 @@
+---
+title: 利用hexo搭建个人静态博客
+date: 2018-09-16 21:49:42
+urlName: User Pages by Hexo
+tags: 
+    - hexo
+    - User Pages
+    - SEO
+---
+
+> 之前一直想打一个个人博客, 由于各种原因搁置了. 这次无意中看到`github pages`的妙用, 趁着热情还没散去赶紧动手搭建了一个, 作为一个后端菜鸡程序员, 折腾这么一个前端也是踩了不少坑. 这里记录一下, 作为`Hello World`. 
+
+## 安装环境
+
+  > 说到安装环境就要在这里啰嗦下, 开始是用的`github`推荐的`jekyll`, 还要安装`ruby`, 找到`next`主题的过程中了解到了`hexo`, 果断换了, 这个不会还可以找个队友问下. 就是这么一个过程就导致了我误解了这个流程. 由于`github`上`next`的文档有点歧义, 导致我直接下载主题之后在主题的根目录下运行`hexo server`.由于第一次接触`node`, 这里就直接怀疑人生了, 由于文是框架快完工的时候写的, 所以有些坑可能就忘了.  
+
+  1. 安装`node`. 
+
+  2. 在命令行执行``npm install -g hexo-cli`` 安装`Hexo`
+   
+  3. 执行``hexo init`` 初始化项目
+
+  4. 在项目根目录执行``npm install`` 安装项目依赖
+     > 到这里环境算是搭建好了, 可以执行``hexo s -g`` 然后去浏览器访问``localhost:4000``查看效果. 具体的可以查看[Hexo官网](https://hexo.io/zh-cn/docs/)
+
+  5. 更换主题, 你可以把主题下载到你项目的`themes`目录下面, 然后修改项目根目录下面的配置文件`_config.yml`中的`theme`字段为 你下载下来的主题文件夹名, 注意`theme`后面必须要有空格. 我装的是[Next](https://github.com/iissnan/hexo-theme-next)
+
+
+## `hexo` 部署到`github` 和`coding`
+
+> 博客我原本是放在`github`上, 但是由于访问速度比较慢, 还有百度并不能收录到`github` 的内容, 然后就把`coding` 作为国内访问, 毕竟配置好了之后更新文章和只放`github`没区别. 
+
+### 设置`ssh`公钥
+
+> balabala
+
+###  `hexo` 部署到`gibhub`, `master`分支存博客, `source`分支存源码 
+
+> 利用分支同时保留博客静态文件和源代码, 由于我会在公司和家里写博客, 所以方便在不同电脑之间同步就很重要了. 可以把代码放在`source`分支, 这样没有写完的文章等可以直接传上去, 静态博客自动部署在`master`分支, 这样就两不耽误. 需要注意的是, 不要手动修改`master`分支的内容, 否则下次部署又重新覆盖掉了.
+
+1. 新建一个 `gubhub`仓库, 项目名 **一定要叫`UserName.github.io`** 其中`UserName`为你的`github`用户名.
+
+    > 敲重点: 开始我开到别人说我也不信, 页面也能访问到也就没在意, 一抓包发现发现怎么也加载不出`css`等文件, 域名也是`UserName.github.io`, 应该是域名和仓库名需要对应. 这种格式的仓库为`User Pages`, 和普通仓库还有一个不同的地方就是这种仓库的`pages`只能放在`master`分支, 普通仓库的`pages`可以一般可以放在`gh-pages`分支. 这样就导致了一个很烦人的问题, 进入仓库的时候主分支没有`readme`, 他会很显眼的提示你加上, 你加上之后又会给你渲染成很丑的样子, 要么就是每次生成都要重新手动加入`public`文件夹里面, 这是要逼死强迫症啊. 还好解决了~~
+
+2. 安装`git`
+
+3. 在项目根目录执行`git init`初始化本地`git`仓库
+
+4. 编辑`.gitignore`文件, 避免把一些依赖和代码自动生成的文件传到`github`上, 我的文件如下
+    ```
+    .DS_Store
+    Thumbs.db
+    db.json
+    package-lock.json
+    *.log
+    node_modules/
+    public/
+    .deploy*/
+
+    .git/
+    .idea/
+    ```
+
+6. 到项目根目录分别执行以下命令: (git不熟可以看看[git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000))
+    ```
+    # 创建并切换分支
+    git checkout -b source
+    git add .
+    git commit -m "first commit"
+    git remote add origin git@github.com:blueboxH/blueboxh.github.io.git
+    git push -u origin source
+    ```
+    > 把其中的`blueboxH`换成你的用户名, 到这里你就把源码推送到了服务器的`source`分支, `master`分支不用手动推送, 最后要是推送不上去按照提示操作强制推送分支就好了. 不能推送的话检查`ssh`公钥配置是否有误
+
+6. 在项目根目录`_config.yml`中`deploy`字段配置如下:
+    ```
+    deploy:
+      type: git
+      repo: git@github.com:blueboxH/blueboxh.github.io.git
+      branch: master
+    ```
+7. 执行`hexo g -d` 将生成后的文件自动部署到`master`分支. 
+
+8. 去你的仓库设置检查`github pages`配置. 按以上步骤操作的话应该会自动设置好. 可以点击上面显示的链接访问你的站点了. 
+
+## todo
+- 怎么默认 source 分支
+- readme
+- 代码颜色选中看不出来, 粘贴插件
+
+
+
+

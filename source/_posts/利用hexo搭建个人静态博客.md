@@ -8,7 +8,9 @@ tags:
     - SEO
 ---
 
-> 之前一直想打一个个人博客, 由于各种原因搁置了. 这次无意中看到`github pages`的妙用, 趁着热情还没散去赶紧动手搭建了一个, 作为一个后端菜鸡程序员, 折腾这么一个前端也是踩了不少坑. 这里记录一下, 作为`Hello World`. 
+> 之前一直想搭一个个人博客, 由于各种原因搁置了. 这次无意中看到`github pages`的妙用, 趁着热情还没散去赶紧动手搭建了一个, 作为一个后端菜鸡程序员, 折腾这么一个前端也是踩了不少坑. 包括安装部署以及一些个性化的配置, 这里记录一下, 作为`Hello World`. 
+
+<!-- more -->
 
 ## 安装环境
 
@@ -30,7 +32,7 @@ tags:
 
 > 博客我原本是放在`github`上, 但是由于访问速度比较慢, 还有百度并不能收录到`github` 的内容, 然后就把`coding` 作为国内访问, 毕竟配置好了之后更新文章和只放`github`没区别. 
 
-### 设置`ssh`公钥
+### 配置`ssh`公钥
 
 > balabala
 
@@ -40,7 +42,7 @@ tags:
 
 1. 新建一个 `gubhub`仓库, 项目名 **一定要叫`UserName.github.io`** 其中`UserName`为你的`github`用户名.
 
-    > 敲重点: 开始我开到别人说我也不信, 页面也能访问到也就没在意, 一抓包发现发现怎么也加载不出`css`等文件, 域名也是`UserName.github.io`, 应该是域名和仓库名需要对应. 这种格式的仓库为`User Pages`, 和普通仓库还有一个不同的地方就是这种仓库的`pages`只能放在`master`分支, 普通仓库的`pages`可以一般可以放在`gh-pages`分支. 这样就导致了一个很烦人的问题, 进入仓库的时候主分支没有`readme`, 他会很显眼的提示你加上, 你加上之后又会给你渲染成很丑的样子, 要么就是每次生成都要重新手动加入`public`文件夹里面, 这是要逼死强迫症啊. 还好解决了~~
+    > 敲重点: 开始我开到别人说我也不信, 页面也能访问到也就没在意, 一抓包发现发现怎么也加载不出`css`等文件, 域名也是`UserName.github.io`, 应该是域名和仓库名需要对应. 这种格式的仓库为`User Pages`, 和普通仓库还有一个不同的地方就是这种仓库的`pages`只能放在`master`分支, 普通仓库的`pages`可以一般可以放在`gh-pages`分支. 这样就导致了一个很烦人的问题, 进入仓库的时候主分支没有`readme`, 他会很显眼的提示你加上, 你加上之后又会给你渲染成很丑的样子, 要么就是每次生成都要重新手动加入`public`文件夹里面, 这是要逼死强迫症啊. 还好[<span id = "skip_render_back">解决了~~</span>](#skip_render)
 
 2. 安装`git`
 
@@ -79,15 +81,51 @@ tags:
       repo: git@github.com:blueboxH/blueboxh.github.io.git
       branch: master
     ```
-7. 执行`hexo g -d` 将生成后的文件自动部署到`master`分支. 
+7. 执行`hexo g -d` 将自动生成后的文件自动部署到`master`分支. 
 
 8. 去你的仓库设置检查`github pages`配置. 按以上步骤操作的话应该会自动设置好. 可以点击上面显示的链接访问你的站点了. 
 
+### `hexo` 部署到`coding`
+
+> 由于源代码已经在`github`仓库了, 所以没必要再放到`coding`, 直接部署静态博客到`coding`上就好了.
+
+  1. 注册`coding`账号, 升级成为银牌会员. 创建名为`username`的仓库, 仓库名字和用户名相同. (不同怎么样我也没试过~~) 仓库需要设置为公开源代码(新版). 
+
+  2. 配置项目根目录下`_config.yml`文件, 如下: (我的用户名为`blueboxH`, 这个根据个人情况修改)
+      ```
+      deploy:
+        type: git
+        repo: 
+          github: git@github.com:blueboxH/blueboxh.github.io.git
+          coding: git@git.coding.net:blueboxH/blueboxH.git
+        branch: master
+      ```
+  3. 执行`hexo g -d` 将自动生成后的文件自动部署到`github`和`coding`的`master`分支. 
+        > 要是这里部署不成功的话(`master`分支没有文件), 请检查`ssh`公钥配置. 
+
+  4. 在 `代码` > `pages服务`中点击设置`一键开启静态pages`
+
+### 绑定域名
+> 之所以把绑定域名单独提出来, 是因为这里有坑. 还有妙用, 如果你只是把项目放在一个仓库里, 那绑定域名只是一个可有可无的操作, 但是当你
+
+## `hexo`有层次的分类(TOC)
+
+
+## `hexo` SEO
+
+## `hexo`填坑
+
+### [<span id = "skip_render">`hexo`不渲染`README`文件的方法</span>](#skip_render_back "back")   
+
+  在项目根目录下`_config.yml`文件中配置如下配置:
+  ```
+  skip_render: README.md
+  ```
 ## todo
 - 怎么默认 source 分支
 - readme
-- 代码颜色选中看不出来, 粘贴插件
-
+- 代码复制粘贴插件
+- 1, 2级标题居中显示
 
 
 

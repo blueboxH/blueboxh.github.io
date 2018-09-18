@@ -85,10 +85,15 @@ deploy:
   branch: master
 
 search:
-  path: search.xml
+  path: resources/search.xml
   field: post
   format: html
   limit: 10000
+
+sitemap:
+  path: resources/sitemap.xml
+baidusitemap:
+  path: resources/baidusitemap.xml
 
 # 根据文章所在的文件夹给文章生成相应的分类
 auto_dir_categorize:

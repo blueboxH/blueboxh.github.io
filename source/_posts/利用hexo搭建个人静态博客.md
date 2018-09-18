@@ -1,7 +1,7 @@
 ---
 title: 利用hexo搭建个人静态博客
 date: 2018-09-16 21:49:42
-urlName: User Pages by Hexo
+urlName: User_Pages_by_Hexo
 tags: 
     - hexo
     - User Pages
@@ -23,6 +23,7 @@ tags:
   3. 执行``hexo init`` 初始化项目
 
   4. 在项目根目录执行``npm install`` 安装项目依赖
+
      > 到这里环境算是搭建好了, 可以执行``hexo s -g`` 然后去浏览器访问``localhost:4000``查看效果. 具体的可以查看[Hexo官网](https://hexo.io/zh-cn/docs/)
 
   5. 更换主题, 你可以把主题下载到你项目的`themes`目录下面, 然后修改项目根目录下面的配置文件`_config.yml`中的`theme`字段为 你下载下来的主题文件夹名, 注意`theme`后面必须要有空格. 我装的是[Next](https://github.com/iissnan/hexo-theme-next)
@@ -92,7 +93,7 @@ tags:
   1. 注册`coding`账号, 升级成为银牌会员. 创建名为`username`的仓库, 仓库名字和用户名相同. (不同怎么样我也没试过~~) 仓库需要设置为公开源代码(新版). 
 
   2. 配置项目根目录下`_config.yml`文件, 如下: (我的用户名为`blueboxH`, 这个根据个人情况修改)
-      ```
+      ```yaml
       deploy:
         type: git
         repo: 
@@ -101,17 +102,77 @@ tags:
         branch: master
       ```
   3. 执行`hexo g -d` 将自动生成后的文件自动部署到`github`和`coding`的`master`分支. 
+
         > 要是这里部署不成功的话(`master`分支没有文件), 请检查`ssh`公钥配置. 
 
   4. 在 `代码` > `pages服务`中点击设置`一键开启静态pages`
 
 ### 绑定域名
-> 之所以把绑定域名单独提出来, 是因为这里有坑. 还有妙用, 如果你只是把项目放在一个仓库里, 那绑定域名只是一个可有可无的操作, 但是当你
+> 之所以把绑定域名单独提出来, 是因为这里有坑. 还有妙用, 如果你只是把项目放在一个仓库里, 那绑定域名只是一个可有可无的操作, 但是当你把博客同时部署在`github`和`coding`上的时候, 这能给你带来很多方便. 比如, 百度和谷歌收录不用再根据域名单独配置了, 同一个域名就可以访问部署在两个地方的博客. 域名解析可以把同一个域名根据访问`ip`不同分别解析到`github`或`coding`上, 只需要把解析到`github`的线路设置为海外即可, 你也可以把`www`前缀的域名解析到`coding`上(`github`不可以解析多个域名), 毕竟还是有一些人错误的认为域名必须要加`www`, 虽然猿类犯这种错的几率不大~~
+
+[参考链接](http://zhanghao.studio/%E6%8F%90%E5%8D%87%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6.html)
+
+这个很简单, 就如上文所操作, 只不过有两个地方需要注意,
+
+-  一个就是公钥不需要两个, 邮箱相同, 同一个公钥可以在两个仓库设置.
+- 去掉`coding`广告的时候需要回到旧版才能看到`Hosted by Coding Pages`选项
 
 ## `hexo`有层次的分类(TOC)
 
-
 ## `hexo` SEO
+
+> 你的博客部署上去了, 但是此时你并不能通过`google`或者`百度`搜索到你的博客, 因为你没有去他们那里登记~~. 你**首先**得向他们证明这个博客是你的, 这个时候就能体会到分别部署在两个地方的时候用属于自己的独立域名的好处了, 你可以用域名解析的方式方便的证明这个网站是你的, 不然两个部署在两个地方用两个不同的域名, 操作起来很麻烦.  **然后**你再分别提交站点地图.  这里我就没什么好说的了, 并没有什么独特的见解, 网上教程大把. 不过还是期待以后有时间能丰富这个模块. 所以单独留出来占个坑
+
+1. 安装sitemap站点地图自动生成插件
+
+   ```shell
+   npm install hexo-generator-sitemap --save
+   npm install hexo-generator-baidu-sitemap --save
+   ```
+
+2. 在项目根目录`_config.yml`下作如下配置:
+
+   ```yaml
+   sitemap:
+     path: resources/sitemap.xml
+   baidusitemap:
+     path: resources/baidusitemap.xml
+   ```
+
+   > 之所以不配置在主题目录是因为配置在这换主题的话不用改, 且这个和主题无关
+
+3. 在项目根目录`_config.yml`下修改域名:
+
+   ```yaml
+   # URL
+   ## 如果你的站点用的子目录(比子域名更有利于SEO), 设置 url 为 'https://bluebox.org.cn/blog' ,设置 root 为 '/blog/'
+   url: https://bluebox.org.cn
+   root: /
+   ```
+
+4. 执行`hexo g`生成静态文件, 你会发现 public/resource下面多了两个文件`sitemap.xml`和baidusitemap.xml`
+
+5. 添加`robot`协议, 在``source\resources``下面新建`robot.txt`文件, 内容如下:
+
+   ```txt
+   # hexo robots.txt
+   User-agent: *
+   Allow: /
+   Allow: /archives/
+   
+   Disallow: /vendors/
+   Disallow: /js/
+   Disallow: /css/
+   Disallow: /fonts/
+   Disallow: /vendors/
+   Disallow: /fancybox/
+   
+   Sitemap: https://bluebox.org.cn/resources/sitemap.xml
+   Sitemap: https://bluebox.org.cn/resources/baidusitemap.xml
+   
+   ```
+
+   6. [给非友情链接的出站链接添加 "nofollow" 标签](https://www.arao.me/2015/hexo-next-theme-optimize-seo/#u7ED9_u975E_u53CB_u60C5_u94FE_u63A5_u7684_u51FA_u7AD9_u94FE_u63A5_u6DFB_u52A0__u201Cnofollow_u201D__u6807_u7B7E)
 
 ## `hexo`填坑
 

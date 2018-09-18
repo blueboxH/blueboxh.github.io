@@ -172,7 +172,11 @@ tags:
    
    ```
 
-   6. [给非友情链接的出站链接添加 "nofollow" 标签](https://www.arao.me/2015/hexo-next-theme-optimize-seo/#u7ED9_u975E_u53CB_u60C5_u94FE_u63A5_u7684_u51FA_u7AD9_u94FE_u63A5_u6DFB_u52A0__u201Cnofollow_u201D__u6807_u7B7E)
+6. [给非友情链接的出站链接添加 "nofollow" 标签](http://www.arao.me/2015/hexo-next-theme-optimize-seo/#u7ED9_u975E_u53CB_u60C5_u94FE_u63A5_u7684_u51FA_u7AD9_u94FE_u63A5_u6DFB_u52A0__u201Cnofollow_u201D__u6807_u7B7E)   (todo)
+
+7. 验证站点   (todo)
+
+8. 提交sitemap  (todo)
 
 ## `hexo`填坑
 
@@ -184,9 +188,20 @@ tags:
   ```
 ## todo
 - 怎么默认 source 分支
+
 - readme
+
 - 代码复制粘贴插件
+
 - 1, 2级标题居中显示
+
+-  评论收到邮件提醒的时候并不能跳转到指定文章指定评论
+
+-  加载较慢, 需要优化
+
+- logo 不能展示出来
+
+- hexo-autonofollow
 
 
 

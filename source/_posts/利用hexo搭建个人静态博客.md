@@ -19,7 +19,7 @@ tags:
   1. 安装`node`. 
 
   2. 在命令行执行``npm install -g hexo-cli`` 安装`Hexo`
-   
+
   3. 执行``hexo init`` 初始化项目
 
   4. 在项目根目录执行``npm install`` 安装项目依赖
@@ -34,7 +34,28 @@ tags:
 
 ### 配置`ssh`公钥
 
-> balabala
+> 这步是必须的,  填的邮箱最好是`github`和`coding`公用的邮箱, 一个公钥就能在几个地方使用
+
+1. 执行以下命令(邮箱换成你自己的), 期间按三次回车, 密码不用设置, 不然每次都要输入密码
+
+   ```shell
+   ssh-keygen -t rsa -C "blueboxh@163.com"
+   ```
+
+2. 用以下命令检查是否生成成功( `windows` 用 `powershell`)
+
+   ```shell
+   cat ~/.ssh/id_rsa.pub
+   ```
+
+3. 把上一步输出的公钥加入`github`和`coding`上的`ssh key` 中(从设置进入)
+
+4. 在终端输入以下命令, 添加主机到本机`ssh` 可信列表, 你也可以直接执行一个`git` 操作, 手动建立信任
+
+   ````shell
+   ssh -T git@github.com
+   ssh -T git@coding.net
+   ````
 
 ###  `hexo` 部署到`gibhub`, `master`分支存博客, `source`分支存源码 
 
@@ -63,7 +84,7 @@ tags:
     .idea/
     ```
 
-6. 到项目根目录分别执行以下命令: (git不熟可以看看[git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000))
+5. 到项目根目录分别执行以下命令: (git不熟可以看看[git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000))
     ```
     # 创建并切换分支
     git checkout -b source
@@ -127,5 +148,10 @@ tags:
 - 代码复制粘贴插件
 - 1, 2级标题居中显示
 
+
+
+
+- [ ] zen
+- [ ] test
 
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bluebox.org.cn/2018-09-27-gradle-notes/</loc>
+    <lastmod>2018-10-10T01:14:32.233Z</lastmod>
+  </url>  <url>
+    <loc>https://bluebox.org.cn/2018-09-27-springcloud-note/</loc>
+    <lastmod>2018-10-10T01:10:53.490Z</lastmod>
+  </url>  <url>
+    <loc>https://bluebox.org.cn/2018-10-09-Solve-the-problem-of-using-the-association-i-the-resultMap-of-mybatis/</loc>
+    <lastmod>2018-10-10T01:03:50.669Z</lastmod>
+  </url>  <url>
+    <loc>https://bluebox.org.cn/2018-09-16-User_Pages_by_Hexo/</loc>
+    <lastmod>2018-10-10T00:56:46.667Z</lastmod>
+  </url>  <url>
+    <loc>https://bluebox.org.cn/2018-09-13-Hello%20World/</loc>
+    <lastmod>2018-09-18T04:34:42.453Z</lastmod>
+  </url>
+</urlset>

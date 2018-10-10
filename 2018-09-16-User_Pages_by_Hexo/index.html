@@ -133,10 +133,12 @@
 <meta property="og:site_name" content="bluebox&#39;s box">
 <meta property="og:description" content="之前一直想搭一个个人博客, 由于各种原因搁置了. 这次无意中看到github pages的妙用, 趁着热情还没散去赶紧动手搭建了一个, 作为一个后端菜鸡程序员, 折腾这么一个前端也是踩了不少坑. 包括安装部署以及一些个性化的配置, 这里记录一下, 作为Hello World.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-10T00:56:46.667Z">
+<meta property="og:image" content="https://bluebox.org.cn/resources/images/hexo-coding-error.png">
+<meta property="og:updated_time" content="2018-10-10T01:55:19.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用hexo搭建个人静态博客">
 <meta name="twitter:description" content="之前一直想搭一个个人博客, 由于各种原因搁置了. 这次无意中看到github pages的妙用, 趁着热情还没散去赶紧动手搭建了一个, 作为一个后端菜鸡程序员, 折腾这么一个前端也是踩了不少坑. 包括安装部署以及一些个性化的配置, 这里记录一下, 作为Hello World.">
+<meta name="twitter:image" content="https://bluebox.org.cn/resources/images/hexo-coding-error.png">
 
 
 
@@ -388,7 +390,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-10T08:56:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-10T09:55:19+08:00">
                 2018-10-10
               </time>
             
@@ -482,6 +484,9 @@
 </li>
 <li><p>在终端输入以下命令, 添加主机到本机<code>ssh</code> 可信列表, 你也可以直接执行一个<code>git</code> 操作, 手动建立信任</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@coding.net</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里遇到一个问题, 如下图所示. 可以用直接在<code>coding.net</code>上<code>clone</code>一个项目来代替<code>ssh -T git@coding.net</code>向<code>known_hosts</code>添加信任.<br>  <img src="../resources/images/hexo-coding-error.png" alt="tu">  </p>
+</blockquote>
 </li>
 </ol>
 <h3 id="hexo-部署到gibhub-master分支存博客-source分支存源码"><a href="#hexo-部署到gibhub-master分支存博客-source分支存源码" class="headerlink" title="hexo 部署到gibhub, master分支存博客, source分支存源码"></a><code>hexo</code> 部署到<code>gibhub</code>, <code>master</code>分支存博客, <code>source</code>分支存源码</h3><blockquote>

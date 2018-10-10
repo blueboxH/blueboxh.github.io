@@ -7,6 +7,10 @@ tags:
 
 ---
 
+> maven 和 gradle 作为java的项目构建工具, 两者各有优缺点, 就我个人感觉而言, 觉得maven这种xml格式的上手比较容易, 新手看几条命令也能很容易的理解要表达的意思, 而 gradle 用的脚本语言, 可能需要一定的学习成本, 但是表现力更为强大. 这次由于要学习springcloud要使用多项目构建, 就来学习一下在这边面更优秀的 gradle.
+
+<!-- more -->
+
 ## 命令
 
 - https://www.w3cschool.cn/gradle/9b5m1htc.html

@@ -57,6 +57,9 @@ tags:
    ssh -T git@github.com
    ssh -T git@coding.net
    ````
+   > 这里遇到一个问题, 如下图所示. 可以用直接在`coding.net`上`clone`一个项目来代替``ssh -T git@coding.net``向`known_hosts`添加信任.
+     ![tu](../resources/images/hexo-coding-error.png)  
+     
 
 ###  `hexo` 部署到`gibhub`, `master`分支存博客, `source`分支存源码 
 
